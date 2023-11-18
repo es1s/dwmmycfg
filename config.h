@@ -5,8 +5,8 @@ static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=11" };
-static const char dmenufont[]       = "monospace:size=11";
+static const char *fonts[]          = { "URWGothic-Demi:size=11" };
+static const char dmenufont[]       = "URWGothic-Demi:size=11";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#f0fff0";
 static const char col_gray3[]       = "#bbbbbb";
@@ -19,7 +19,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "F", "S", "D", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -69,14 +69,17 @@ static const char *pavucontrol[]  = { "pavucontrol", NULL };
 static const char *wps[] = { "wps", NULL };
 static const char *ymp[] = { "ymp", NULL };
 static const char *obs[] = { "obs", NULL };
-static const char *dscr[] = { "deepin-screenshot", NULL };
+static const char *dscr[] = { "deepin-screen-recorder", NULL };
 static const char *dclc[] = { "deepin-calculator", NULL };
 static const char *gimp[] = { "gimp", NULL };
 static const char *vbox[] = { "virtualbox", NULL };
 static const char *code[] = { "code", NULL };
-static const char *fm[] = { "nautilus", NULL };
+static const char *fm[] = { "nemo", NULL };
 static const char *cisco[] = { "packettracer", NULL };
 static const char *bt[] = { "blueman-manager", NULL };
+static const char *pulsel[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
+static const char *pulser[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
+static const char *pulsem[] = { "pactl", "set-sink-mute", "0", "toggle", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -128,6 +131,10 @@ static Key keys[] = {
 	{ MODKEY,			XK_e,	  spawn,	{.v = fm } },
 	{ MODKEY|ControlMask,		XK_p,	  spawn,	{.v = cisco } },
 	{ MODKEY|ShiftMask,		XK_b,	  spawn,	{.v = bt } },
+	/* f keys */
+	{ 0,	0x1008ff11,	spawn,	{.v = pulsel } },
+	{ 0,	0x1008ff13,	spawn,	{.v = pulser } },
+	{ 0,	0x1008ff12,	spawn,	{.v = pulsem } },
 };
 
 
