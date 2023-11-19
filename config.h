@@ -77,9 +77,11 @@ static const char *code[] = { "code", NULL };
 static const char *fm[] = { "nemo", NULL };
 static const char *cisco[] = { "packettracer", NULL };
 static const char *bt[] = { "blueman-manager", NULL };
+/* f binds */
 static const char *pulsel[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
 static const char *pulser[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
-static const char *pulsem[] = { "pactl", "set-sink-mute", "0", "toggle", NULL};
+static const char *pulsem[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
+static const char *settings[] = { "cool-retro-term", "-e", "nvim", "$SETTINGS" };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -135,6 +137,7 @@ static Key keys[] = {
 	{ 0,	0x1008ff11,	spawn,	{.v = pulsel } },
 	{ 0,	0x1008ff13,	spawn,	{.v = pulser } },
 	{ 0,	0x1008ff12,	spawn,	{.v = pulsem } },
+	{ 0,	0x1008ff81,	spawn,	{.v = settings } },
 };
 
 
