@@ -42,7 +42,7 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
+	{ "",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
@@ -77,6 +77,7 @@ static const char *code[] = { "code", NULL };
 static const char *fm[] = { "nemo", NULL };
 static const char *cisco[] = { "packettracer", NULL };
 static const char *bt[] = { "blueman-manager", NULL };
+static const char *top[] = {"cool-retro-term", "-e", "btop" };
 /* f binds */
 static const char *pulsel[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
 static const char *pulser[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
@@ -133,6 +134,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_e,	  spawn,	{.v = fm } },
 	{ MODKEY|ControlMask,		XK_p,	  spawn,	{.v = cisco } },
 	{ MODKEY|ShiftMask,		XK_b,	  spawn,	{.v = bt } },
+	{ MODKEY|ShiftMask,	XK_Escape, spawn,	{.v = top } },
 	/* f keys */
 	{ 0,	0x1008ff11,	spawn,	{.v = pulsel } },
 	{ 0,	0x1008ff13,	spawn,	{.v = pulser } },
